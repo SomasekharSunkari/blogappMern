@@ -1,0 +1,36 @@
+.form-top{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1000px;
+    margin: 2rem auto 0;
+
+    gap:1.4rem;
+    
+}
+.btn-create{
+    width: 100%;
+}
+.contentquill{
+    height: 4rem!important;
+    margin-bottom: 3rem;
+    width: 100%;
+
+}
+.form-top input{
+    height: 2rem;
+    font-family: "Poppins",sans-serif;
+
+    padding-left: 1rem;
+}
+.form-top input:focus{
+    outline: none;
+}
+::placeholder{
+    font-family: "Poppins",sans-serif;
+}
+.form-top button{
+    color: white;
+    height: 3rem;background: #555151;
+    border-radius: 2rem;
+}

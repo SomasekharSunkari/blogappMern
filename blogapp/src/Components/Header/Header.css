@@ -1,0 +1,59 @@
+header{
+  max-width: 1400px;
+  width: 90%;
+  background-color: transparent;
+  margin: 2rem 2rem 2rem;
+/* padding:20px; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.small {
+  display:flex;
+  gap:10px
+  ;
+  font-size: 10px;
+}
+.auth,.small a{
+  font-size:1rem;
+}
+header a{
+  text-decoration: none;
+  font-size: 1rem;
+  color: black;
+}
+header > a:first-child{
+  font-size: 1rem;
+}
+  @media screen and (min-width:768px){
+    header{
+      max-width: 1400px;
+      width: 100%;
+      background-color: transparent;
+      margin: 2rem auto 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header a{
+      text-decoration: none;
+      color: black;
+    }
+    header > a:first-child{
+      font-size: 1rem;
+    }
+    header > a:first-child{
+      font-size: 1.5rem;
+    }
+    .auth,.small a{
+      font-size:1.5rem;
+      margin:20px
+    }
+    
+    .header .auth{
+      display: flex;
+      gap:30px;
+    }
+   
+  }
+  

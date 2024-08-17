@@ -1,0 +1,47 @@
+.posts-create{
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 2rem 2rem;
+}
+.posts-create img{
+    width: 100%;
+       height: 300px;
+}
+.post-content .about{
+    color: rgb(143, 136, 136);
+   }
+   .post-content .author {
+       margin-right: 2rem;
+   }
+.post-content > a{
+    font-size: 2rem;
+    text-decoration: none;
+    color: black;
+}
+@media screen and (min-width:800px) {
+    .posts-create{
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap:2rem;
+       margin-bottom: 2rem;
+    }
+    
+    .posts-create img{
+        width: 100%;
+        border-radius: 20px;
+    }
+    .post-content > a{
+        font-size: 2rem;
+        text-decoration: none;
+        color: black;
+    }
+    .post-content .about{
+     color: rgb(143, 136, 136);
+    }
+    .post-content .author {
+        margin-right: 2rem;;
+        /* color: red; */
+        
+        /* background-color: red; */
+    }
+}

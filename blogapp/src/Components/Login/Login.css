@@ -1,0 +1,34 @@
+.form{
+    width: 100%;
+
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    margin:0 auto;
+    background-color: transparent;
+}
+.loginh1{
+    text-align: center;
+}
+.form input{
+    height: 2rem;
+    padding-left: 20px;
+
+}
+.form button{
+    background-color: #4b4646;
+    height: 2.3rem;
+    width: 100%;
+    border-radius: 10px;
+    color: white;
+}
+.form input:focus{
+    outline: 0;
+    padding-left: 20px;
+
+}
+/* ::placeholder{
+    font-family: ;
+} */
