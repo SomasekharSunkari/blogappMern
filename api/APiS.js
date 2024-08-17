@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
-import { UserModel } from "../api/models/User.js";
+import { UserModel } from "./models/User.js";
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import multer from 'multer';
@@ -38,8 +38,8 @@ mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
-.then(() => console.log('Connected to MongoDB'))
-.catch(err => console.error('Failed to connect to MongoDB', err));
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('Failed to connect to MongoDB', err));
 
 // Register route
 app.post('/register', async (req, res) => {
@@ -118,20 +118,20 @@ app.post("/logout", (req, res) => {
 });
 
 
-app.put('/post',uploadMiddleware.single('file'), async (req,res) => {
+app.put('/post', uploadMiddleware.single('file'), async (req, res) => {
   let newPath = null;
   if (req.file) {
-    const {originalname,path} = req.file;
+    const { originalname, path } = req.file;
     const parts = originalname.split('.');
     const ext = parts[parts.length - 1];
-    newPath = path+'.'+ext;
+    newPath = path + '.' + ext;
     fs.renameSync(path, newPath);
   }
 
-  const {token} = req.cookies;
-  jwt.verify(token, secre, {}, async (err,info) => {
+  const { token } = req.cookies;
+  jwt.verify(token, secre, {}, async (err, info) => {
     if (err) throw err;
-    const {id,title,summary,content} = req.body;
+    const { id, title, summary, content } = req.body;
     const postDoc = await PostModel.findById(id);
     console.log(postDoc)
     const isAuthor = JSON.stringify(postDoc.author) === JSON.stringify(info.id);
@@ -156,7 +156,7 @@ app.post("/posts", uploadMiddleware.single("file"), async (req, res) => {
   const ext = parts[parts.length - 1];
   const newPath = path + "." + ext;
   fs.renameSync(path, newPath);
-// console.log(req)
+  // console.log(req)
   const { token } = req.cookies;
   jwt.verify(token, secre, {}, async (err, info) => {
     if (err) throw err;
@@ -175,15 +175,15 @@ app.post("/posts", uploadMiddleware.single("file"), async (req, res) => {
 // Get post by ID
 app.get("/post/:id", async (req, res) => {
   const { id } = req.params;
-  const post = await PostModel.findById(id).populate('author',['username']);
+  const post = await PostModel.findById(id).populate('author', ['username']);
   res.json(post);
 });
 
 // Get all posts
 app.get("/getposts", async (req, res) => {
   const posts = await PostModel.find({}).populate('author', ['username'])
-  .sort({createdAt: -1})
-  .limit(20);
+    .sort({ createdAt: -1 })
+    .limit(20);
   // console.log(posts)
   res.json(posts);
 });
