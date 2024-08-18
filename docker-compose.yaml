@@ -1,0 +1,23 @@
+services :
+  frontend:
+    image: blogfront:1.0
+    container_name: frontend
+    ports:
+      - "3000:80"
+    volumes:
+      - database:/use/share/nginx/html
+    depends_on:
+       - back
+  back:
+    image: blogback:1.0
+    container_name: blogkback
+    ports: 
+     - "5000:5000"
+    
+volumes: 
+ database:
+   external: true
+
+
+  
+  
