@@ -24,7 +24,7 @@ console.log(__dirname)
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 
 app.use(cors({
-  origin: 'http://localhost:3000', // Allow requests from this origin
+  origin: 'http://localhost:3001', // Allow requests from this origin
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allowed methods
   credentials: true // Allow cookies to be sent
 }));
